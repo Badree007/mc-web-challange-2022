@@ -19,3 +19,7 @@ Bonus
 ## 2. Clock puzzle (optional)
 
 The minute hand and hour hand overlap sometimes. Your task is to write a Javascript or Typescript function that takes the number of minutes elapsed as an input. It should return the number of times the minute hand and the hour hand overlap within that period. The starting position is 12 o'clock and it should be excluded in the count.
+
+# How to start
+
+To start working on your solution, please fork this repository under your personal Github account and email it back to us when complete.
