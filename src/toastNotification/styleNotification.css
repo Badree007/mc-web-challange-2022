@@ -1,0 +1,66 @@
+.notify-container {
+    position: absolute;
+    padding: 5px;
+    top: 0;
+    right: 20px;
+}
+
+.notify-element-container {
+    position: relative;
+    padding: 10px;
+    width: 280px;
+    min-height: 38px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: whitesmoke;
+    box-shadow: 0 1px 10px 0 #00000050 ;
+    transition: width 1s ease, height 1s ease;
+    overflow: hidden;
+}
+
+.message-container {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.close-container {
+    width: 10%;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.close-timer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-color: aliceblue;
+    transition: width 0.5s ease;
+}
+
+.notify-icon {
+    background-color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid #00000050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes notify-fly-in {
+    from {left: 100%}
+    to {left: 0}
+}
+
+@keyframes notify-fly-out {
+    from {left: 0%}
+    to {left: 100%}
+}

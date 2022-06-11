@@ -1,5 +1,14 @@
+import Form from "./formComponent";
+import NotificationTab from "./toastNotification";
+import { NotificationProvider } from "./context/NotificationContext";
+
 const App = () => {
-  return "";
+  return (
+      <NotificationProvider>
+        <Form />
+        <NotificationTab />
+      </NotificationProvider>
+  )
 };
 
 export default App;
