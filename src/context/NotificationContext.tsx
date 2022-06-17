@@ -1,19 +1,19 @@
 import React, {useState, useContext} from 'react';
 
-const NotificationContext = React.createContext([]);
-const AddNotificationContext = React.createContext(true);
+const NotificationContext = React.createContext<Notification[]>([]);
+const AddNotificationContext = React.createContext<Function>(():any=>{});
 
-export const useNotification = ()=> {
+export const useNotification = ():any => {
     return useContext(NotificationContext);
 }
-export const useAddNotification = ()=> {
+export const useAddNotification = ():any => {
     return useContext(AddNotificationContext);
 }
 
 export const NotificationProvider = ({children}:any)=> {
-    const [notificationList, setNotificationList] = useState<object[]>([]);
+    const [notificationList, setNotificationList] = useState<Notification[]>([]);
 
-    const addNotification = (notification: object) => {
+    const addNotification = (notification: Notification) => {
         if(!notification) return;
         setNotificationList((prev) => {
             return [...prev, notification];
@@ -28,3 +28,10 @@ export const NotificationProvider = ({children}:any)=> {
         </NotificationContext.Provider>
     )
 }
+
+type Notification = {
+    type: string,
+    message: string,
+    closeTime: number,
+    position: string
+  }

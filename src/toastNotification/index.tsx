@@ -4,9 +4,11 @@ import { useNotification } from '../context/NotificationContext';
 import NotifyElement from './notifyElement';
 
 const NotificationTab = () => {
-  const [notifications, setNotifications] = useState<object[]>([]);
-
+  const [notifications, setNotifications] = useState<Notification[]>([]);
   const notificationList = useNotification();
+
+  let position = notifications[notificationList.length -1]?.position?.toLowerCase();
+  position = ['top', 'top-right', 'bottom-right'].includes(position) ? position : 'top-right';
   
   useEffect(()=> {
     if(!notificationList) return;
@@ -27,7 +29,7 @@ const NotificationTab = () => {
 
   return (
     <div className='notify-main'>
-      <div className='notify-container'>
+      <div className={`notify-container ${position}`}>
         { notifications && notifications.map((notificationItem, index)=> {return (<NotifyElement key={index} notification={notificationItem} />)}
         )}
       </div>
@@ -38,7 +40,8 @@ const NotificationTab = () => {
 type Notification = {
   type: string,
   message: string,
-  closeTime: number
+  closeTime: number,
+  position: string
 }
 
 export default NotificationTab;

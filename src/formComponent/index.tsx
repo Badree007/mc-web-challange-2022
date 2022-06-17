@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { ToastContainer } from "react-toastify";
 import { useAddNotification } from "../context/NotificationContext";
 
 const Form = ()=> {
     const defaultData = {
         type: "",
         message: "",
-        closeTime: 0
+        closeTime: 0,
+        position: ""
     }
     const [notificationData, setNotificationData] = useState(defaultData);
     const updateNotificationList = useAddNotification();
@@ -33,6 +33,11 @@ const Form = ()=> {
                     onChange={(e)=> setNotificationData((prev)=> {return {...prev, closeTime: Number(e.target.value)} })}></input>
                 </div>
                 <div className="input_div">
+                  <label>Position: </label>
+                  <input className="input" type='text' value={notificationData?.position || ''} placeholder="eg: top, top-right and bottom-right" 
+                    onChange={(e)=> setNotificationData((prev)=> {return {...prev, position: e.target.value} })}></input>
+                </div>
+                <div className="input_div">
                   <label>Message: </label>
                   <textarea className="input" value={notificationData?.message || ''} placeholder="notification message" 
                     onChange={(e)=> setNotificationData((prev)=> {return {...prev, message: e.target.value} })} />
@@ -43,7 +48,6 @@ const Form = ()=> {
               </form>
             </div>
           </div>
-          <ToastContainer/>
         </React.Fragment>
     )
 }
